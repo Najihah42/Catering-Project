@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/Home/logo.png"/>
+        <title>Catering Anjung Selera</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="fonts/oswald/stylesheet.css" rel="stylesheet"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/counterup.min.js" type="text/javascript"></script>
+        <script src="js/waypoints.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/instafeed.min.js"></script> 
+
+        <script src="js/custom.js" type="text/javascript"></script>
+		
+<style>
+body { background-color: rgb(240, 240, 240); }
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+.float-right {
+      float: right; }
+	  
+</style>
+
+    </head>
+	<?php 
+session_start();
+if(isset($_SESSION["userid"])){
+?>
+    <body class="about">
+        <!--header--->
+        <header>
+            <div class="container">
+                <div class="header-top">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 visible-xs">
+                            <div class="logo-mobile">
+                                <a href="home.html"><img src="images/Home/logo.png"/></a>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>                        
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse text-center" id="myNavbar">
+                                <ul class="nav navbar-nav margin-l">
+                                    <li><a href="home.php">Home</a></li>
+                                    
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="toggle set-pos">
+                                            Menu <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu btn-block box-content-menu">
+                                            <ul class="menu">
+                                                <li><a class="dropdown" href="birthday.php">Birthday</a></li>
+                                                <li><a class="dropdown" href="wedding.php">Wedding</a></li>
+                                                <li><a class="dropdown" href="business.php">Business Event</a></li>
+                                                
+                                                <li><a class="dropdown" href="dishes.html">Dishes</a></li>
+                                                
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <li><a href="service.php">service</a></li>
+                                </ul>
+                                <div class="logo hidden-xs">
+                                    <a href="home.html"><img src="images/Home/logo.png"/></a>
+                                </div>
+                                <ul class="nav navbar-nav navbar-right">
+                                   
+                                    <li class="active"><a>About Us</a></li>
+                                    <li><a href="contact.php">CONTACT Us</a></li>
+									
+                                    <li><a onclick="myFunction()" style="width:auto;" href="logout.php">Logout</a>
+                                    
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="clearfix"></div>
+        </header>
+        <!--end-->
+
+        <!--special block--->
+        <section class="">
+            <div class="container">
+                <div class="text-head">
+                    <h1>welcome to our website</h1>
+                </div>
+                <div class="height-135"></div>
+                <div class="image">
+                    <img  src="images/AS.png" alt="image" style="float: left; margin-right: 10px; margin-bottom: 5px; border: solid black 1px; padding: 2px"/>
+                </div>
+				<h1 style="font-family:pristina;">ANJUNG SELERA</h1>
+				<br>
+                <p><font size="4">We Offer Fast Food, Served Fresh With The Highest Quality Of
+                    Ingredients Fresh, Handcut Chicken, Buns Baked Fresh In Our
+                    Own Bakeries And The Most Delicious Hot Dogs With A Variety
+                    Of Toppings We Offer Fast Food, Served Fresh With The Highest
+                    Quality OfIngredients Fresh, Handcut Chicken, Buns Baked Fres
+                    Own Bakeries And The Most Delicious Hot Dogs With A Varietyk
+                    Of Toppings We Offer Fast Food, Served Fresh With The Highest
+                    Of Toppings. Ingredients Fresh, Handcut Chicken, Buns Baked Fresh In Our
+                    Own Bakeries And The Most Delicious Hot Dogs With A Variety
+                    Of Toppings We Offer Fast Food, Served Fresh With The Highest
+                    Quality OfIngredients Fresh, Handcut Chicken, Buns Baked Fres
+                    Own Bakeries And The Most Delicious Hot Dogs With A Varietyk
+                    Of Toppings We Offer Fast Food, Served Fresh With The Highest
+                    Of Toppings.</font></p>
+            </div>
+            <div class="clearfix"></div>
+        </section>
+
+        <!--service block--->
+        <section class="service-block">
+            <div class="container">
+
+                <div class="text-head">
+                    <h1>our services</h1>
+                </div>
+                <div class="height-135"></div>
+                <div class="row">
+                    <div class="col-md-40">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="event-image">
+                                <img src="images/Home/img1.jpg" class="img-responsive">
+                                <div class="overlay">
+                                    <a class="info" href="#">Birthdays</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="event-image">
+                                <img src="images/Home/img2.jpeg" class="img-responsive">
+                                <div class="overlay">
+                                    <a class="info" href="wedding.php">Weddings</a>
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="event-image">
+                                <img src="images/Home/img3.jpg" class="img-responsive">
+                                <div class="overlay">
+                                    <a class="info" href="#">Business Events</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!--counter block---->
+        <section class="counter-block">
+          <div class="clearfix"></div>
+        </section>
+
+        <!--staff block--->
+        <section class="staff-block"></section>
+
+        <!--subscribe-->
+        <section class="subscribe-block">
+          <div class="clearfix"></div>
+        </section>
+
+
+
+        <!--footer-->
+        
+        <!--end-->
+
+        <!--back to top--->
+        <a id="back-to-top" class="scrollTop back-to-top" href="javascript:void(0);" style="display: none;">
+             <img src="images/top-arrow.png" onmouseover="this.src = 'images/top-arrow2.png'" onmouseout="this.src = 'images/top-arrow.png'" alt="left">
+        </a>
+        <!--end--->
+
+        <script>
+            jQuery(document).ready(function ($) {
+                $('.counter').counterUp({
+                    delay: 10,
+                    time: 1000
+                });
+            });
+        </script>
+        <script>
+            $(function () {
+                $('.pop').on('click', function () {
+                    $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+                    $('#imagemodal').modal('show');
+                });
+            });
+        </script>
+		 <script>
+// Get the modal
+               var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+               window.onclick = function(event) {
+               if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<script>
+function myFunction() {
+  alert("Thank You!");
+}
+</script>
+    </body>
+	<?php
+}
+else{
+echo"No session";
+header('Location:home.html');
+}
+?>
+</html>
